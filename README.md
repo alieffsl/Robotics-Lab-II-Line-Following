@@ -1,8 +1,3 @@
-<!-- ![Example Image](https://github.com/alieffsl/Robotics-Lab-II-Line-Following/blob/main/Project-Rule/Robotics%20Lab%20II%20-%20Project%20Rule_1.png)
-![Example Image](https://github.com/alieffsl/Robotics-Lab-II-Line-Following/blob/main/Project-Rule/Robotics%20Lab%20II%20-%20Project%20Rule_2.png)
-![Example Image](https://github.com/alieffsl/Robotics-Lab-II-Line-Following/blob/main/Project-Rule/Robotics%20Lab%20II%20-%20Project%20Rule_3.png)
-![Example Image](https://github.com/alieffsl/Robotics-Lab-II-Line-Following/blob/main/Project-Rule/Robotics%20Lab%20II%20-%20Project%20Rule_4.png) -->
-
 # Line Following Project - Robotics Lab II
 
 <!-- BlackPink Team:
@@ -16,12 +11,13 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
-- [Library Usage](#usage)
+- [Library Usage](#library-usage)
   - [Servo Functions](#servo-functions)
   - [Motor Functions](#motor-functions)
   - [Line Following Functions](#line-following-functions)
   - [Encoder Functions](#encoder-functions)
-- [Project Rules](#project-rule)
+- [Project Rules](#project-rules)
+
 
 ## Introduction
 
@@ -68,4 +64,4 @@ This robot utilizes 4 mechanum DC motors, equipped with a dynamixel servo lifter
 
 ## Project Rules
 
-The attached project rules can be found at the following link: 
+The attached project rules can be found at the following link: [link_here]
