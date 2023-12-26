@@ -1,5 +1,5 @@
-#ifndef LINEFOLL_EKSBOT_h
-#define LINEFOLL_EKSBOT_h
+#ifndef BLACKPINKBOT_h
+#define BLACKPINKBOT_h
 
 #include <Arduino.h>
 
@@ -9,10 +9,23 @@
 // Modes
 # define NO_LINE 0
 # define FOLLOWING_LINE 1
-# define FRONT 2
-# define FORWARD 2
-# define LEFT 3
-# define RIGHT 4
+# define FF 2
+# define FL 3
+# define FR 4
+# define TURN_LEFT 5
+# define TURN_RIGHT 6
+# define GO_STRAIGHT 7
+
+#define fwrd 1
+#define bwd 2
+#define r 3
+#define l 4
+#define fwd_xr 5
+#define fwd_xl 6
+#define bwd_xr 7
+#define bwd_xl 8
+#define tr 9
+#define tl 10
 
 // Motor
 # define FRONT_LEFT_MOTOR_DIR_PIN1 4
@@ -35,6 +48,20 @@
 # define STBY_PIN1 9
 # define STBY_PIN2 12 
 
+#define port_buzzer 37
+#define redLED 23
+#define blueLED 27
+#define greenLED 45
+
+#define right_button 25
+#define left_button 44
+
+#define next dnext();
+
+#include <Keypad.h>
+
+// Keypad
+extern Keypad keypad;
 
 class Motor
 {
@@ -95,22 +122,44 @@ void brake(Motor motor1, Motor motor2, Motor motor3, Motor motor4);
 
 // void motorDrivePID(Motor motor1, Motor motor2, Motor motor3, Motor motor4, int speedL, int speedR);
 
+void servoAngkut(int dtime);
+void servoTaruh(int dtime);
+void servoReset(int dtime);
+
 void eksbotInit();
-void toggleRobot(bool state);
 void motorDrivePID(int speedL, int speedR);
 void checkSensors();
 void readSensors();
 void calculatePID();
-void motorPIDcontrol();
-void autolinefollow();
-void line(int desiredMode);
+void motorPIDcontrol(int refSpeed);
+void autolinefollow(int duration, int dbreaktime);
+void line(int desiredMode, int desiredSpeed, int dbreaktime);
 void turn(int action);
 
-void turnLeft(int speed, int dtime);
-void turnRight(int speed, int dtime);
-void stopRobot(int dtime);
-void goForward(int speed, int dtime);
-void goBackward(int speed, int dtime);
-void stop_end(bool state);
+void StopMotors();
+void buzzer(int num, int ton, int toff);
+void findline(int speedL, int speedR, int dbreaktime);
+void dnext();
+void spinheading(int sudut);
+void linedelay(int speed, int dtime, int dbreaktime);
+void linefoll();
+void move(int mspeed_FL, int mspeed_FR, int mspeed_RL, int mspeed_RR);
 
-#endif // LINEFOLL_EKSBOT_h
+//Encoder
+void handleEncoder();
+bool allWheelsReachedTarget(float target);
+int CMtoSteps(float distance_CM, float encoderTicksPerRevolution);
+void EncoderConfig(int mode, int distanceCM, int mspeed, int encoderTicksPerRevolution);
+void FWD(int distanceCM, int speed);
+void BWD(int distanceCM, int speed);
+void R(int distanceCM, int speed);
+void L(int distanceCM, int speed);
+void FWD_XR(int distanceCM, int speed);
+void FWD_XL(int distanceCM, int speed);
+void BWD_XR(int distanceCM, int speed);
+void BWD_XL(int distanceCM, int speed);
+void TR(int distanceCM=25, int speed=200);
+void TL(int distanceCM=25, int speed=200);
+void lineIntersect(int n);
+
+#endif // BLACKPINKBOT_h
