@@ -64,4 +64,4 @@ This robot utilizes 4 mechanum DC motors, equipped with a dynamixel servo lifter
 
 ## Project Rules
 
-The attached project rules can be found at the following link: [link_here]
+The attached project rules can be found at the following link: [https://github.com/alieffsl/Robotics-Lab-II-Line-Following/blob/main/Project%20Rules/README.md]
